@@ -1,11 +1,3 @@
-console.log('CLIENT SIDE JAVASCRIPT FILE IS LOADED')
-
-// // client-side code
-// fetch('http://puzzle.mead.io/puzzle').then((response) => { //tya bata response ayasi call back run hunxa
-//     response.json().then((data) =>{ //json data auxa parse hunxa ani balla run hunxa tyo callback (object)
-//         console.log(data)
-//     })
-// })
 const url = 'http://localhost:3000/weather?address=Kahun,Pokhara'
 
 const weatherForm = document.querySelector('form')
@@ -22,8 +14,8 @@ weatherForm.addEventListener('submit', (e) => { // form submit vayo ki vayana ch
     message1.textContent = 'Loading...'
     message2.textContent = ''
     
-    fetch('http://localhost:3000/weather?address=' + location).then((response) =>{
-        response.json().then(data => {
+    fetch('http://localhost:3000/weather?address=' + location).then((response) =>{ // tya bata response ayasi call back run hunxa
+        response.json().then(data => { // json data auxa parse hunxa ani balla run hunxa tyo callback (object)
             // console.log(data.error)
             if (data.error){
                     return message1.textContent = data.error

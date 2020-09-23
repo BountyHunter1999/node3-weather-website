@@ -14,7 +14,7 @@ weatherForm.addEventListener('submit', (e) => { // form submit vayo ki vayana ch
     message1.textContent = 'Loading...'
     message2.textContent = ''
     
-    fetch('http://localhost:3000/weather?address=' + location).then((response) =>{ // tya bata response ayasi call back run hunxa
+    fetch('/weather?address=' + location).then((response) =>{ // tya bata response ayasi call back run hunxa
         response.json().then(data => { // json data auxa parse hunxa ani balla run hunxa tyo callback (object)
             // console.log(data.error)
             if (data.error){

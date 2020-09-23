@@ -9,8 +9,12 @@ const forecast = (lat, lon, callback) =>{
         } else if(body.cod){
             callback('Unable to find the location!')
         } else{
-            // const resBody = response.body
-            callback(undefined, `It is currently ${body.current.temp} degrees out.The weather situation is: ${body.current.weather[0].description}`)
+            // console.log(body.daily)
+            callback(undefined, `The weather situation is: ${body.current.weather[0].description}.\n 
+            It is currently ${body.current.temp} degrees out.\n
+            Maximum temp. today: ${body.daily[0].temp.max} degrees\n
+            Minimum temp. today: ${body.daily[0].temp.min} degrees
+            `)
         }
     } )
 }

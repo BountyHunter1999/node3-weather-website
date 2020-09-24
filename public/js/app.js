@@ -1,5 +1,3 @@
-const url = 'http://localhost:3000/weather?address=Kahun,Pokhara'
-
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
 const message1 = document.querySelector('#message-1')

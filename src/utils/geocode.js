@@ -7,7 +7,6 @@ const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+ encodeURICompo
         if (error) {
             callback("Unable to connect to location services!")
         } else if(body.features.length === 0 ){
-            // console.log("UNABLE TO FIND LoCATION")
             callback("Unable to find location. Try again with different search terms.", undefined)
         } else{
             callback(undefined, {

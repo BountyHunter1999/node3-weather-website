@@ -22,13 +22,13 @@ app.set('view engine', 'hbs') // key(setting name, value)
 app.set('views', viewsPath) // root ma herthyo natra tyo change hanako
 hbs.registerPartials(partialsPath)
 
-// Setup static directory to serve
+// Setup static directory to serve, yaha bata herna suru hunxa 
 app.use(express.static(publicDirectoryPath))// serve up that public folder
 
 
 
 app.get('', (req, res) => {
-    res.render('index', {
+    res.render('index', { // index hbs 
         title: 'Weather',
         name: 'Shrish Adhikari'
     })
@@ -43,14 +43,14 @@ app.get('/about', (req, res) => {
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        msg: "I CAN'T LOAD THE PAGE, WHAT HAPPENED, PLS HELP!",
+        msg: "If You Have Any Problem, Contact Me...",
         title: 'Help',
         name: 'Shrish'
     })
 })
 
-app.get('/weather', (req, res) => {
-    if (!req.query.address)
+app.get('/weather', (req, res) => { // yo bata json linxa hamro site  
+    if (!req.query.address) // query ma ? address jastari auna parxa
         return res.send({ error: 'Address Not Provided' })
 
         geocode(req.query.address, (error, { lat, lon, location} = {} ) => { 
@@ -70,18 +70,6 @@ app.get('/weather', (req, res) => {
     })
 }) 
 
-app.get('/products', (req, res) => {
-    if (!req.query.search){
-        return res.send({
-            error: 'You must provide a search term'
-        })
-    }
-    console.log(req.query.search)
-    res.send({
-        products: []
-    })
-})
-
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
@@ -97,8 +85,6 @@ app.get('*', (req, res) => {
         errorMessage: 'Page not found'
     })
 })
-
-
 
 //start the server, port 
 app.listen(port, () => {
